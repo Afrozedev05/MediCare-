@@ -233,3 +233,72 @@ button:hover{
   background:#1f1f1f;
   color:white;
 }
+
+/* LOADING SCREEN */
+
+#loader-wrapper{
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100vh;
+
+  background:linear-gradient(135deg,#0d6efd,#14b8a6);
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+
+  transition:1s;
+}
+
+.loader-content{
+
+  text-align:center;
+  color:white;
+}
+
+.loader-content img{
+
+  width:120px;
+  margin-bottom:20px;
+}
+
+.loader-content h1{
+
+  font-size:50px;
+  margin-bottom:20px;
+}
+
+.medical-loader{
+
+  width:80px;
+  height:80px;
+
+  border:8px solid rgba(255,255,255,0.3);
+
+  border-top:8px solid white;
+
+  border-radius:50%;
+
+  margin:20px auto;
+
+  animation:spinLoader 1s linear infinite;
+}
+
+@keyframes spinLoader{
+
+  100%{
+    transform:rotate(360deg);
+  }
+}
+
+.hide-loader{
+
+  opacity:0;
+  visibility:hidden;
+}

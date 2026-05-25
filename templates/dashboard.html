@@ -15,6 +15,24 @@
 
 <body>
 
+    <!-- LOADING SCREEN -->
+
+<div id="loader-wrapper">
+
+  <div class="loader-content">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/4320/4320337.png">
+
+    <h1>MediCare+</h1>
+
+    <div class="medical-loader"></div>
+
+    <p>Loading Healthcare Services...</p>
+
+  </div>
+
+</div>
+
 <!-- NAVBAR -->
 
 <div class="navbar-custom">
@@ -160,6 +178,21 @@ class="btn btn-dark mb-4">
 filename='js/script.js') }}"></script>
 
 </div>
+
+<script>
+
+window.addEventListener('load', ()=>{
+
+  setTimeout(()=>{
+
+    document.getElementById('loader-wrapper')
+    .classList.add('hide-loader');
+
+  },2000);
+
+});
+
+</script>
 
 </body>
 
