@@ -15,6 +15,8 @@
 
 <body>
 
+<!-- NAVBAR -->
+
 <div class="navbar-custom">
 
   <h2>MediCare+</h2>
@@ -27,39 +29,177 @@
 
     <a href="/appointment">Appointments</a>
 
+    <a href="/video">Video Call</a>
+
   </div>
 
 </div>
+
+<!-- PAGE -->
 
 <div class="page-container">
 
   <h1>AI Health Assistant</h1>
 
-  <div class="chat-box">
+  <!-- CHAT BOX -->
+
+  <div class="chat-box" id="chatBox">
 
     <div class="bot-message">
       Hello! Describe your symptoms.
     </div>
 
-    <div class="user-message">
-      I have headache and fever.
-    </div>
+  </div>
 
-    <div class="bot-message">
-      You may have viral fever. Please consult a physician.
-    </div>
+  <!-- SYMPTOM SUGGESTIONS -->
+
+  <div class="mt-4">
+
+    <h5>Quick Symptoms</h5>
+
+    <button class="btn btn-outline-primary m-1"
+    onclick="selectSymptom('Fever')">
+
+      Fever
+
+    </button>
+
+    <button class="btn btn-outline-primary m-1"
+    onclick="selectSymptom('Headache')">
+
+      Headache
+
+    </button>
+
+    <button class="btn btn-outline-primary m-1"
+    onclick="selectSymptom('Chest Pain')">
+
+      Chest Pain
+
+    </button>
+
+    <button class="btn btn-outline-primary m-1"
+    onclick="selectSymptom('Cough')">
+
+      Cough
+
+    </button>
+
+    <button class="btn btn-outline-primary m-1"
+    onclick="selectSymptom('Stomach Pain')">
+
+      Stomach Pain
+
+    </button>
 
   </div>
 
+  <!-- INPUT -->
+
   <input type="text"
-  class="form-control mt-3"
+  id="symptomInput"
+  class="form-control mt-4"
   placeholder="Type your symptoms...">
 
-  <button class="btn btn-primary mt-3">
+  <button class="btn btn-primary mt-3"
+  onclick="sendMessage()">
+
     Send
+
   </button>
 
 </div>
+
+<!-- SCRIPT -->
+
+<script>
+
+function selectSymptom(symptom){
+
+  document.getElementById('symptomInput')
+  .value = symptom;
+
+}
+
+function sendMessage(){
+
+  let input =
+  document.getElementById('symptomInput');
+
+  let message = input.value;
+
+  if(message.trim() === '') return;
+
+  let chatBox =
+  document.getElementById('chatBox');
+
+  // USER MESSAGE
+
+  let userDiv =
+  document.createElement('div');
+
+  userDiv.className = 'user-message';
+
+  userDiv.innerText = message;
+
+  chatBox.appendChild(userDiv);
+
+  // BOT RESPONSE
+
+  let botDiv =
+  document.createElement('div');
+
+  botDiv.className = 'bot-message';
+
+  if(message.toLowerCase().includes('fever')){
+
+    botDiv.innerText =
+    'Possible viral infection detected. Please stay hydrated and consult a physician.';
+
+  }
+
+  else if(message.toLowerCase().includes('headache')){
+
+    botDiv.innerText =
+    'Headache may be caused by stress, dehydration, or fever.';
+
+  }
+
+  else if(message.toLowerCase().includes('chest')){
+
+    botDiv.innerText =
+    'Chest pain can be serious. Please consult a cardiologist immediately.';
+
+  }
+
+  else if(message.toLowerCase().includes('cough')){
+
+    botDiv.innerText =
+    'Persistent cough may indicate infection or allergy.';
+
+  }
+
+  else{
+
+    botDiv.innerText =
+    'Please consult a healthcare specialist for proper diagnosis.';
+
+  }
+
+  setTimeout(()=>{
+
+    chatBox.appendChild(botDiv);
+
+    chatBox.scrollTop =
+    chatBox.scrollHeight;
+
+  },1000);
+
+  input.value='';
+
+}
+
+</script>
 
 </body>
 
