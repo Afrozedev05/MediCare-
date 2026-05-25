@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prescription</title>
+
+  <link rel="stylesheet"
+  href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="page-container">
+
+  <h1>Digital Prescription</h1>
+
+  <div class="prescription-box">
+
+    <h3>Patient: John Doe</h3>
+
+    <hr>
+
+    <p>Medicine: Paracetamol</p>
+    <p>Dosage: 2 times daily</p>
+    <p>Lab Test: Blood Test</p>
+    <p>Next Visit: 15 Days</p>
+
+    <button onclick="window.print()">
+      Download Prescription
+    </button>
+
+  </div>
+
+</div>
+
+</body>
+</html>
