@@ -186,14 +186,33 @@ function sendMessage(){
 
   }
 
-  setTimeout(()=>{
+  // TYPING ANIMATION
+
+let typingDiv =
+document.createElement('div');
+
+typingDiv.className = 'bot-message typing-animation';
+
+typingDiv.innerText =
+'AI Assistant is typing...';
+
+chatBox.appendChild(typingDiv);
+
+chatBox.scrollTop =
+chatBox.scrollHeight;
+
+// BOT REPLY DELAY
+
+setTimeout(()=>{
+
+    typingDiv.remove();
 
     chatBox.appendChild(botDiv);
 
     chatBox.scrollTop =
     chatBox.scrollHeight;
 
-  },1000);
+},2000);
 
   input.value='';
 

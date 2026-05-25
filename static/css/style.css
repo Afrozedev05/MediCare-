@@ -302,3 +302,19 @@ button:hover{
   opacity:0;
   visibility:hidden;
 }
+
+/* AI TYPING ANIMATION */
+
+.typing-animation{
+
+  opacity:0.6;
+
+  animation:typingPulse 1s infinite;
+}
+
+@keyframes typingPulse{
+
+  50%{
+    opacity:1;
+  }
+}
