@@ -93,6 +93,18 @@ def emergency():
 def prescription():
     return render_template('prescription.html')
 
+# CHATBOT
+
+@app.route('/chatbot')
+def chatbot():
+    return render_template('chatbot.html')
+
+# VIDEO CONSULTATION
+
+@app.route('/video')
+def video():
+    return render_template('video.html')
+
 if __name__ == '__main__':
 
     with app.app_context():
